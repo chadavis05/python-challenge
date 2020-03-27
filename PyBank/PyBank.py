@@ -50,3 +50,17 @@ with open(budget_data_path, newline="") as csvfile:
     print(f"Average change: ${int(average_change)}")
     print(f"Greatest Increase in Profits: {str(greatest_increase_month)} ${int(greatest_increase)}")
     print(f"Greatest Decrease in Profits: {str(greatest_decrease_month)} ${int(greatest_decrease)}")
+
+    # Print Results to File
+################################################################
+output_file = os.path.join("Output", "financial_analysis.txt")
+
+with open(output_file, 'w') as txtfile:
+    txtfile.writelines("Financial Analysis\n----------------------------------------\nTotal Votes: " + str(total_profit_loss) + "\n----------------------------------------\n")
+    txtfile.writelines("Total Months" + ": " + str(total_months) + "\n")
+    txtfile.writelines("Total" + ": $" + str(total_profit_loss) + "\n")
+    txtfile.writelines("Average Change" + ": $" + str(average_change) + "\n")
+    txtfile.writelines("Greatest Increase" + ": " + str(greatest_increase_month) + " " + "($" + str(greatest_increase) + ")\n")
+    txtfile.writelines("Greatest Decrease" + ": " + str(greatest_decrease_month) + " " + "($" + str(greatest_decrease) + ")")
+
+################################################################
